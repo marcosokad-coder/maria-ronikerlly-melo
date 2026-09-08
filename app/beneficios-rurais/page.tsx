@@ -1,0 +1,10 @@
+import {Breadcrumbs} from "@/components/breadcrumbs";
+import {Process,FinalCTA} from "@/components/sections";
+import {FAQ} from "@/components/faq";
+import {BlogSection} from "@/components/blog";
+import {ArrowButton} from "@/components/ui/arrow-button";
+import {ruralCopy} from "@/lib/site";
+import {pageMeta} from "@/lib/seo";
+import Link from "next/link";
+export const metadata=pageMeta("Benefícios rurais em Araripina","Orientação previdenciária para trabalhadores rurais em Araripina e região. Análise individual, documentação e atenção às particularidades do trabalho no campo.","/beneficios-rurais");
+export default function Page(){return <><Breadcrumbs items={[{label:"Benefícios Rurais",href:"/beneficios-rurais"}]}/><section className="wrap internal-hero"><span className="eyebrow">ESPECIALISTA EM BENEFÍCIOS RURAIS</span><h1>Benefícios rurais com atenção às particularidades de quem vive do trabalho no campo.</h1><p>{ruralCopy}</p><ArrowButton/></section><section className="process section"><div className="wrap rural-intro"><span className="eyebrow">CADA TRAJETÓRIA IMPORTA</span><h2>Quem pode precisar de orientação?</h2><p>Quem trabalha no campo e tem dúvidas sobre seu enquadramento perante o INSS, sobre os documentos necessários ou sobre uma decisão recebida pode buscar uma análise individual.</p><p>A forma de exercício da atividade e a trajetória de trabalho precisam ser consideradas. Morar na zona rural, isoladamente, não define o direito a um benefício.</p><Link className="text-link" href="/blog/quem-e-trabalhador-rural-inss">Entenda o trabalho rural para o INSS ↗</Link><h2>Documentos que ajudam a contar sua história.</h2><p>Uma análise individual permite organizar as informações relevantes, compreender os requisitos aplicáveis e definir o caminho jurídico adequado para cada situação.</p><p>É importante reunir os registros disponíveis e observar a que períodos eles se referem. Não existe uma lista única que resolva todos os casos.</p><Link className="text-link" href="/blog/documentos-atividade-rural">Leia sobre comprovação da atividade rural ↗</Link></div></section><Process/><FAQ/><BlogSection/><FinalCTA/></>}

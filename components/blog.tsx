@@ -1,0 +1,6 @@
+import Image from "@/components/ui/site-image";
+import Link from "next/link";
+import {ArrowUpRight} from "lucide-react";
+import {posts, type BlogPost} from "@/content/blog/posts";
+export function BlogCard({post}:{post:BlogPost}){return <Link className="blog-card" href={`/blog/${post.slug}`}><div className="blog-image"><Image src={post.coverImage} alt={post.coverAlt} fill sizes="(max-width: 700px) 100vw, 33vw"/></div><span className="eyebrow">{post.category}</span><h3>{post.title}</h3><p>{post.excerpt}</p><span className="text-link">Ler conteúdo <ArrowUpRight size={17}/></span></Link>}
+export function BlogSection({related=false,exclude=""}:{related?:boolean;exclude?:string}){return <section className="section wrap"><div className="blog-heading"><div><span className="eyebrow">CENTRAL DE CONTEÚDO</span><h2>{related?"Continue a leitura":"Conteúdos para entender melhor seus direitos previdenciários"}</h2><p>Informação clara e acessível para ajudar você a compreender dúvidas frequentes sobre temas previdenciários.</p></div><Link className="text-link" href="/blog">Ver todos os conteúdos <ArrowUpRight size={17}/></Link></div><div className="blog-grid">{posts.filter(p=>p.slug!==exclude).slice(0,3).map(p=><BlogCard key={p.slug} post={p}/>)}</div></section>}

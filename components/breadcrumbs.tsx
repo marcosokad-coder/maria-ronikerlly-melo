@@ -1,0 +1,3 @@
+import Link from "next/link";
+import {site} from "@/lib/site";
+export function Breadcrumbs({items}:{items:{label:string;href:string}[]}){const all=[{label:"Início",href:"/"},...items];return <><nav className="breadcrumbs wrap" aria-label="Você está aqui"><ol>{all.map((x,i)=><li key={x.href}>{i>0&&<span aria-hidden="true">/</span>}{i===all.length-1?<span aria-current="page">{x.label}</span>:<Link href={x.href}>{x.label}</Link>}</li>)}</ol></nav><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:all.map((x,i)=>({"@type":"ListItem",position:i+1,name:x.label,item:site.origin+x.href}))}).replace(/</g,"\u003c")}}/></>}
