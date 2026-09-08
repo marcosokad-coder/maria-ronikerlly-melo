@@ -11,7 +11,7 @@ Next.js 16 App Router, React 19, TypeScript, Tailwind 4, shadcn/ui (Radix), Moti
 ## Configuração e pendências
 `lib/site.ts` centraliza WhatsApp, e-mail, OAB, Maps, Instagram, vínculo institucional, controlador da política e flags de publicação. Valores ausentes usam TODO_CONFIRMAR. Botões de atendimento levam a /contato enquanto WhatsApp não estiver confirmado. Não há formulário que simule envio.
 
-`areas` habilita somente Benefícios Rurais. `reviewsEnabled` inicia false e `testimonials` vazio. Nenhuma avaliação é fictícia.
+`areas` habilita as seis áreas confirmadas pelo usuário em 08/09/2026, preservando textos curtos e completos. `reviewsEnabled` inicia false e `testimonials` vazio. Nenhuma avaliação é fictícia.
 
 ## Conteúdo
 `content/blog/posts.ts` contém seis rascunhos versionados, fontes oficiais e estrutura de autoria/revisão. Três cards são exibidos na Home. Filtros e carregar mais funcionam na Central de Conteúdo. FAQ possui links contextuais.
@@ -22,3 +22,11 @@ A política de privacidade é preliminar e requer confirmação do controlador, 
 
 ## Verificação
 Build nativo Next, lint e typecheck. Auditoria do HTML exportado: links locais, imagens, H1, metadata e canonical. Revisão visual da Home desktop, mobile 390px e tablet 768px, carrossel, accordion, menu e filtro INSS. O preview Vinext pode usar fallback de navegação por HTTP; a produção usa Next e HTTPS.
+
+## Alterações autorizadas em 08/09/2026
+- Faixa informativa com loop horizontal contínuo e botão de pausa.
+- Três capas do blog enviadas pelo usuário, mapeadas aos artigos correspondentes; demais artigos utilizam fotografias temáticas disponíveis, sem retratos da advogada nas capas.
+- Seis áreas confirmadas com as respectivas imagens numeradas. Coverflow baseado na geometria fornecida, autoplay 1500 ms, navegação por setas/arraste, seleção direta e pausa. Autoplay interrompido por hover, foco, interação, aba oculta, componente fora de tela ou movimento reduzido.
+- Seis temas rurais em carrossel próprio na página pilar.
+- Entrada/saída de seções via IntersectionObserver, parallax vinculado ao scroll, progressão de leitura, reveals repetíveis, flutuação e shine de CTAs, hover nos cards e divisores animados.
+- Lint, TypeScript e build Next aprovados. Imagens e links locais verificados. Coverflow desktop: autoplay, pausa e seleção manual confirmados; mobile 375 px e tablet 753 px sem overflow horizontal.
